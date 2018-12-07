@@ -1,0 +1,21 @@
+//Read me: 
+//Copy code and paste it into the url box of a favorites tab
+//To run, click on the tab
+
+
+javascript:
+function myMethod( ) { 
+  
+  document.querySelector("button[data-qa='keep_listening_button']").click();
+ } 
+ 
+var timer = setInterval(myMethod, 1000); 
+
+if(timer) { 
+
+  alert('Clicker running'); 
+
+}
+
+
+

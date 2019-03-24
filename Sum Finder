@@ -1,0 +1,65 @@
+package SumFinder;
+
+public class Problem1 {
+		
+	
+	public static boolean checksum(double[] s1, double[] s2, double x)
+	{
+		// complete the checksum() method to find out
+		// if there exists a number from s1, and a number from s2		
+		// such that, their sum is exactly x
+		// solve for O(n) time or better
+		//both s1 and s2 are sorted
+		
+		boolean output = false;
+		int j = 0;
+		int k = s2.length - 1;
+		
+		while(j<s1.length && k >= 0) {
+			
+			double sum = s1[j] + s2[k];
+		
+				if(sum == x) {//returns true when the sum is found
+				
+					output = true;
+					break;
+				
+				}
+				else if(sum > x){//if the sum is too big, goes to the previous element in the second array
+			
+					k--;
+				
+				}
+				else {//if the sum is too small, goes to the next elements in the first array
+				
+					j++;
+				}
+			
+		}
+		
+		return output;
+		
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		double[] testarray1 = {1, 10, 45};
+		double[] testarray2 = {-8, 4, 6};
+		double target1 = 16;
+		double target2 = 70;
+		
+		System.out.println("Does there exist a number from testarray1, and a number from testarray2, with the sum "+ target1 + "?");
+		System.out.println(checksum(testarray1,testarray2, target1));
+		// should print true
+		
+		System.out.println("Does there exist a number from testarray1, and a number from testarray2, with the sum "+ target2 + "?");
+		System.out.println(checksum(testarray1,testarray2, target2));
+		// should print false
+		
+	}
+
+}
